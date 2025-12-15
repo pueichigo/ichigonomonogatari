@@ -5,7 +5,6 @@ body {
     background-color: #fff5f7; 
     background-image: repeating-linear-gradient(45deg, #f7d8e2 0, #f7d8e2 10px, #fff5f7 10px, #fff5f7 20px);
     color: #333;
-    /* フォントサイズの基準値を設定 */
     font-size: 16px; 
 }
 
@@ -13,43 +12,40 @@ body {
 header {
     background-color: #ff6f91;
     color: white;
-    padding: 40px 20px; /* パディングを調整 */
+    padding: 40px 20px;
     text-align: center;
-    display: flex; /* flexboxで配置を調整 */
-    flex-direction: row; /* 横並びにする */
-    justify-content: center; /* 中央寄せ */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
     position: relative;
-    gap: 40px; /* テキストとアイコンの間隔 */
+    gap: 40px;
 }
 .header-text {
-    /* テキスト部分がアイコンの隣に配置されるように */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 header h1 {
     margin: 0;
-    font-size: 3.5rem; /* rem単位に変更 */
+    font-size: 3.5rem;
     letter-spacing: 0.1em;
 }
 header p {
     margin-top: 20px;
-    font-size: 1.2rem; /* rem単位に変更 */
+    font-size: 1.2rem;
     text-align: center;
 }
 .header-icon {
-    width: 150px; /* サイズを調整 */
-    height: 150px; /* サイズを調整 */
+    width: 150px;
+    height: 150px;
     background-size: cover;
     background-position: center;
     border-radius: 50%;
     border: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    /* アイコンの絶対位置指定を解除 */
     position: static; 
     transform: none;
-    /* ★修正: 要素が縮小して楕円形になるのを防ぐ */
     flex-shrink: 0; 
 }
 
@@ -73,7 +69,7 @@ nav {
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.2s;
-    font-size: 1rem; /* rem単位に変更 */
+    font-size: 1rem;
 }
 .nav-links li a:hover {
     background-color: #e03c62;
@@ -95,14 +91,13 @@ section {
 section h2 {
     margin-top: 0;
     color: #ff4f7a;
-    font-size: 1.8rem; /* rem単位に変更 */
+    font-size: 1.8rem;
     text-align: center;
 }
 section p {
     line-height: 1.8;
-    font-size: 1rem; /* rem単位に変更 */
+    font-size: 1rem;
 }
-/* テキスト中央寄せクラス */
 .text-center {
     text-align: center;
 }
@@ -131,7 +126,6 @@ section p {
         transform: translateX(0);
     }
     100% {
-        /* (300px + 20px) * 4 = 1280px */
         transform: translateX(-1280px);
     }
 }
@@ -152,7 +146,7 @@ section p {
     border-radius: 999px;
     font-weight: bold;
     transition: background-color 0.2s ease, transform 0.2s ease;
-    font-size: 1rem; /* rem単位に変更 */
+    font-size: 1rem;
 }
 .link-btn:hover {
     background-color: #ff4f7a;
@@ -168,7 +162,7 @@ section p {
     font-weight: bold;
     margin-bottom: 5px;
     color: #ff4f7a;
-    font-size: 1rem; /* rem単位に変更 */
+    font-size: 1rem;
 }
 .commission-form-group input[type="text"],
 .commission-form-group input[type="email"],
@@ -178,7 +172,7 @@ section p {
     border: 1px solid #ff99b3;
     border-radius: 8px;
     box-sizing: border-box;
-    font-size: 1rem; /* rem単位に変更 */
+    font-size: 1rem;
 }
 .commission-form-group textarea {
     resize: vertical;
@@ -193,7 +187,7 @@ section p {
     border: none;
     border-radius: 999px;
     font-weight: bold;
-    font-size: 1.1rem; /* rem単位に変更 */
+    font-size: 1.1rem;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
@@ -206,20 +200,18 @@ section p {
 footer {
     text-align: center;
     padding: 20px;
-    font-size: 0.9rem; /* rem単位に変更 */
+    font-size: 0.9rem;
     color: #777;
 }
 
 /* 9. イラスト一覧 (illustrations.htmlで使用) */
 .illustration-grid {
     display: grid;
-    /* ★修正: 2列表示に変更 */
     grid-template-columns: 1fr 1fr; 
-    gap: 30px; /* 画像間の間隔 */
+    gap: 30px;
     margin-top: 20px;
 }
 .illustration-grid img {
-    /* グリッドセルいっぱいに広がるが、最大幅も維持 */
     width: 100%; 
     height: auto;
     max-width: 400px; 
@@ -227,23 +219,54 @@ footer {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* 10. レスポンシブ対応 (モバイル向け) */
-/* 画面幅が600px以下の場合の調整 */
+/* 10. Music リスト (music.htmlで使用) */
+.music-list {
+    margin-top: 20px;
+}
+.music-item {
+    padding: 15px 0;
+}
+.music-item h3 {
+    color: #ff4f7a;
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.music-item p {
+    margin-top: 0;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+.music-item audio {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin-top: 10px;
+    /* ★モバイルでのUI崩れを防ぐ最小幅を設定 */
+    min-width: 250px; 
+}
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #f7d8e2; 
+    margin: 25px 0;
+}
+
+/* 11. レスポンシブ対応 (モバイル向け) */
 @media (max-width: 600px) {
-    /* フォントの基準サイズをより小さくならないように調整（最低限の視認性を確保） */
     body {
         font-size: 14px; 
     }
     
     header {
-        flex-direction: column; /* ヘッダーを縦並びに戻す */
+        flex-direction: column;
         gap: 20px;
         padding: 30px 10px;
     }
     .header-icon {
-        width: 120px; /* アイコンを小さくする */
+        width: 120px;
         height: 120px;
-        /* flex-shrink: 0; は親要素のflex-direction: columnで影響を受けないが、明示的に追加 */
         flex-shrink: 0; 
     }
     header h1 {
@@ -254,7 +277,7 @@ footer {
     }
     
     .nav-links {
-        flex-wrap: wrap; /* ナビゲーションリンクを折り返す */
+        flex-wrap: wrap;
     }
     .nav-links li a {
         padding: 10px 15px;
@@ -271,51 +294,28 @@ footer {
     }
 
     .gallery-track img {
-        width: 200px; /* モバイルで画像を小さくする */
+        width: 200px;
         height: 300px;
     }
-    /* アニメーションの調整 (画像サイズ変更に伴い) */
     @keyframes scrollGallery {
         0% {
             transform: translateX(0);
         }
         100% {
-            /* (200px + 20px) * 4 = 880px */
             transform: translateX(-880px);
         }
     }
-
-    /* 11. Music リストのスタイル */
-.music-list {
-    margin-top: 20px;
-}
-.music-item audio {
-    width: 100%; /* 再生バーの幅をいっぱいにする */
-    max-width: 600px; /* PCなど画面が大きい場合の最大幅 */
-    display: block;
-    margin-top: 10px;
     
-    /* ★新規追加・修正: 最小幅を設定して、スマホでUIが隠れるのを防ぐ */
-    min-width: 250px; 
-}
-/* レスポンシブ対応の @media (max-width: 600px) ブロック内にも追加 */
-@media (max-width: 600px) {
-    /* ... (他のモバイル設定は省略) ... */
-    
-    /* ★新規追加: モバイル時のオーディオプレイヤーの幅を保証 */
-    .music-item audio {
-        /* スマホの画面幅に合わせて100%にしつつ、最低限の幅を保証 */
-        width: 100%;
-        min-width: 250px; 
-    }
-}
-    
-    /* illustrations.html のモバイル調整 */
     .illustration-grid {
-        /* ★修正: モバイルでは1列に戻す */
         grid-template-columns: 1fr;
     }
     .illustration-grid img {
-        width: 100%; /* モバイルでは親要素いっぱいにする */
+        width: 100%;
+    }
+    
+    /* モバイル時のオーディオプレイヤーの幅を保証 */
+    .music-item audio {
+        width: 100%;
+        min-width: 250px;
     }
 }
