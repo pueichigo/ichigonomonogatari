@@ -164,8 +164,6 @@ section p {
     color: #ff4f7a;
     font-size: 1rem;
 }
-.commission-form-group input[type="text"],
-.commission-form-group input[type="email"],
 .commission-form-group textarea {
     width: 100%;
     padding: 10px;
@@ -318,4 +316,88 @@ hr {
         width: 100%;
         min-width: 250px;
     }
+}
+
+/* 12. 見積もり計算エリアの追加スタイル */
+
+.quote-calculator select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ff99b3;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: white;
+}
+
+.toggle-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.toggle-options label {
+    flex-grow: 1;
+    text-align: center;
+    cursor: pointer;
+    background-color: #fce4ec; /* 薄いピンク */
+    color: #ff4f7a;
+    padding: 10px 15px;
+    border-radius: 999px;
+    transition: all 0.2s;
+    font-weight: bold;
+    font-size: 0.95rem;
+    border: 2px solid #fce4ec;
+}
+
+.toggle-options input[type="radio"] {
+    /* ラジオボタン自体を非表示 */
+    display: none;
+}
+
+.toggle-options input[type="radio"]:checked + span {
+    /* 選択されたラベルのスタイル */
+    background-color: #ff6f91; /* 濃いピンク */
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-color: #e03c62;
+}
+
+.toggle-options label:hover {
+    background-color: #ff99b3;
+    color: white;
+}
+
+/* 見積もり結果表示 */
+.quote-result {
+    text-align: center;
+    padding: 20px;
+    border-top: 2px dashed #f7d8e2;
+    margin-top: 20px;
+}
+
+.quote-result h3 {
+    color: #ff6f91;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.price-display {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.5s ease;
+}
+
+.price-ready {
+    color: #e03c62; /* 金額が確定したら色を変える */
+    text-shadow: 1px 1px 3px rgba(255, 79, 122, 0.3);
+}
+
+.quote-result small {
+    display: block;
+    margin-top: 10px;
+    color: #777;
+    font-size: 0.85rem;
 }

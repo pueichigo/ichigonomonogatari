@@ -2,7 +2,8 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>いちごのものがたり</title>
+    <title>いちごのものがたり | Commission</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,16 +26,76 @@
 </nav>
 
 <main>
-    <section id="commission">
-        <h2>Commission</h2>
+    <section id="easy-quote">
+        <h2> 簡単見積もりシミュレーション</h2>
+        <p>ご希望の制作内容を選択すると、おおよその見積もり金額が計算されます。</p>
+        
+        <div class="quote-calculator">
+            
+            <div class="commission-form-group">
+                <label for="basePrice">イラスト形式（必須）</label>
+                <select id="basePrice" onchange="calculateQuote()">
+                    <option value="0">--- 選択してください ---</option>
+                    <option value="10000">バストアップ (胸上まで) - ¥10,000</option>
+                    <option value="15000">立ち絵 (全身) - ¥15,000</option>
+                </select>
+            </div>
+            
+            <div class="commission-form-group">
+                <label>背景・小物</label>
+                <div class="toggle-options" id="backgroundOptions">
+                    <label>
+                        <input type="radio" name="background" value="0" checked onchange="calculateQuote()">
+                        <span>単色/透過/背景なし (+¥0)</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="background" value="3000" onchange="calculateQuote()">
+                        <span>簡易背景/小物1点 (+¥3,000)</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="background" value="8000" onchange="calculateQuote()">
+                        <span>描き込み背景/複雑な小物 (+¥8,000)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="commission-form-group">
+                <label>商用利用（グッズ化、収益化など）</label>
+                <div class="toggle-options" id="commercialOptions">
+                    <label>
+                        <input type="radio" name="commercial" value="0" checked onchange="calculateQuote()">
+                        <span>なし (個人利用/非営利公開) (+¥0)</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="commercial" value="5000" onchange="calculateQuote()">
+                        <span>あり (+¥5,000)</span>
+                    </label>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="quote-result">
+                <h3>最終見積もり金額 (税抜)</h3>
+                <p id="finalQuote" class="price-display">
+                    ¥0
+                </p>
+                <small>※この金額は概算であり、正式な見積もりは依頼フォーム提出後となります。</small>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="commission-form">
+        <h2>✏️ 正式なご依頼・お問い合わせ</h2>
         <p>
-            イラスト制作のご依頼は、以下のボタンをクリックしてGoogleフォームよりお願いします。
-            具体的な制作内容や予算、納期などをご記入ください。
+            簡単見積もりをご確認後、正式な制作のご依頼は、以下のボタンをクリックしてGoogleフォームよりお願いします。
+            具体的な制作内容、キャラクター設定、サイズ、納期、予算などをご記入ください。
         </p>
         
         <div class="link-buttons">
             <a href="https://forms.gle/BXAHWtXCNoqnj43U6" target="_blank" class="commission-submit-btn">
-                Googleフォームで依頼する
+                Googleフォームで依頼・相談する
             </a>
         </div>
         
@@ -44,6 +105,35 @@
 <footer>
     © ぷぇいちご
 </footer>
+
+<script>
+    function calculateQuote() {
+        const basePrice = parseInt(document.getElementById('basePrice').value) || 0;
+        const background = parseInt(document.querySelector('input[name="background"]:checked').value) || 0;
+        const commercial = parseInt(document.querySelector('input[name="commercial"]:checked').value) || 0;
+        
+        const total = basePrice + background + commercial;
+        
+        const formatter = new Intl.NumberFormat('ja-JP', {
+            style: 'currency',
+            currency: 'JPY',
+            maximumFractionDigits: 0
+        });
+        
+        document.getElementById('finalQuote').textContent = formatter.format(total);
+        
+        // ベース料金が選択されていない場合、警告を表示
+        if (basePrice === 0) {
+            document.getElementById('finalQuote').textContent = '---';
+            document.getElementById('finalQuote').classList.remove('price-ready');
+        } else {
+            document.getElementById('finalQuote').classList.add('price-ready');
+        }
+    }
+    
+    // ページロード時にも一度計算を実行 (初期値を表示するため)
+    document.addEventListener('DOMContentLoaded', calculateQuote);
+</script>
 
 </body>
 </html>
