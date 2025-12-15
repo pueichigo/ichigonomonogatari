@@ -4,34 +4,66 @@
     <meta charset="UTF-8">
     <title>いちごのものがたり | ぷぇいちご</title>
     <style>
+        /* 1. 背景の追加 */
         body {
             margin: 0;
             font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
-            background-color: #fff5f7;
+            background-color: #fff5f7; 
+            background-image: repeating-linear-gradient(45deg, #f7d8e2 0, #f7d8e2 10px, #fff5f7 10px, #fff5f7 20px);
             color: #333;
         }
+        
+        /* 2. ヘッダーの調整 (テキストを中央寄せにするため) */
         header {
             background-color: #ff6f91;
             color: white;
-            padding: 40px 20px;
-            text-align: center;
+            padding: 80px 40px; 
+            text-align: center; /* ヘッダー内のテキストを中央揃えに */
+            display: flex;
+            flex-direction: column; /* 要素を縦に並べる */
+            align-items: center; /* 垂直方向・水平方向の中央揃え */
+            position: relative; /* アイコンを絶対配置するために必要 */
         }
+        .header-text {
+            /* 中央寄せを維持するため、特別なスタイルは不要 */
+        }
+        /* 1. タイトル文字をやや大きく */
         header h1 {
             margin: 0;
-            font-size: 2.8rem;
+            font-size: 4.0rem; /* 2.8remから大きく */
             letter-spacing: 0.1em;
         }
         header p {
             margin-top: 10px;
             font-size: 1.1rem;
+            text-align: center;
         }
+        
+        /* 3. アイコンの調整 */
+        .header-icon {
+            /* 3. サイズを約3倍に大きく */
+            width: 250px; /* 150pxから拡大 */
+            height: 250px; /* 150pxから拡大 */
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%; 
+            /* 3. フレームと影を削除 */
+            border: none; 
+            box-shadow: none;
+            /* 中央から右端へ移動させるための調整 */
+            position: absolute; /* headerからの相対位置に配置 */
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
         main {
             max-width: 900px;
             margin: 40px auto;
             padding: 0 20px;
         }
         section {
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
             padding: 30px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -40,6 +72,7 @@
             margin-top: 0;
             color: #ff4f7a;
             font-size: 1.8rem;
+            text-align: center;
         }
         section p {
             line-height: 1.8;
@@ -51,24 +84,106 @@
             font-size: 0.9rem;
             color: #777;
         }
+        .gallery-wrapper {
+            overflow: hidden;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .gallery-track {
+            display: flex;
+            gap: 20px;
+            animation: scrollGallery 40s linear infinite; 
+        }
+        .gallery-track img {
+            width: 300px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        @keyframes scrollGallery {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-1280px); 
+            }
+        }
+        
+        .link-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .link-btn {
+            padding: 12px 24px;
+            background-color: #ff6f91;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 999px;
+            font-weight: bold;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        .link-btn:hover {
+            background-color: #ff4f7a;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>いちごのものがたり</h1>
-    <p>イラストレーター兼ゲームクリエイター ぷぇいちご</p>
+    <div class="header-text">
+        <h1>いちごのものがたり</h1>
+        <p>イラストレーター兼ゲームクリエイター ぷぇいちご</p>
+    </div>
+    <div class="header-icon" style="background-image:url('images/pueichigo.png');"></div>
 </header>
 
 <main>
     <section>
         <h2>自己紹介</h2>
         <p>
-            <!-- ここに自己紹介文を記入してください -->
             イラスト制作とゲーム開発を中心に活動しています。<br>
+            **ブルーアーカイブ**や**HoYoverse**系作品などの二次創作も手がけています。<br>
             世界観づくりやキャラクターデザイン、システム設計が好きで、
             物語性のある作品を大切にしています。
         </p>
+    </section>
+
+    <section style="margin-top:40px;">
+        <h2>イラストギャラリー</h2>
+        <div class="gallery-wrapper">
+            <div class="gallery-track">
+                <img src="images/sample1.jpg" alt="illustration1">
+                <img src="images/sample1.jpg" alt="illustration2">
+                <img src="images/sample1.jpg" alt="illustration3">
+                <img src="images/sample1.jpg" alt="illustration4">
+                <img src="images/sample1.jpg" alt="illustration1">
+                <img src="images/sample1.jpg" alt="illustration2">
+                <img src="images/sample1.jpg" alt="illustration3">
+                <img src="images/sample1.jpg" alt="illustration4">
+            </div>
+        </div>
+    </section>
+    <section style="margin-top:40px;">
+        <h2>リンク</h2>
+        <div class="link-buttons">
+            <a href="https://www.pixiv.net/users/36030800" target="_blank" class="link-btn">Pixiv</a>
+            <a href="https://x.com/pueichigo" target="_blank" class="link-btn">X</a>
+            <a href="https://pueichigo.fanbox.cc/" target="_blank" class="link-btn">FANBOX</a>
+        </div>
+    </section>
+
+    <section style="margin-top:40px;">
+        <h2>DLsite 作品</h2>
+        <div class="link-buttons">
+            <a href="#" target="_blank" class="link-btn">DLsite作品①</a>
+            <a href="#" target="_blank" class="link-btn">DLsite作品②</a>
+        </div>
     </section>
 </main>
 
