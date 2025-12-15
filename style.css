@@ -34,8 +34,8 @@ header h1 {
     letter-spacing: 0.1em;
 }
 header p {
-    margin-top: 10px;
-    font-size: 1.0rem; /* rem単位に変更 */
+    margin-top: 20px;
+    font-size: 1.2rem; /* rem単位に変更 */
     text-align: center;
 }
 .header-icon {
