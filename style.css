@@ -284,6 +284,31 @@ footer {
             transform: translateX(-880px);
         }
     }
+
+    /* 11. Music リストのスタイル */
+.music-list {
+    margin-top: 20px;
+}
+.music-item audio {
+    width: 100%; /* 再生バーの幅をいっぱいにする */
+    max-width: 600px; /* PCなど画面が大きい場合の最大幅 */
+    display: block;
+    margin-top: 10px;
+    
+    /* ★新規追加・修正: 最小幅を設定して、スマホでUIが隠れるのを防ぐ */
+    min-width: 250px; 
+}
+/* レスポンシブ対応の @media (max-width: 600px) ブロック内にも追加 */
+@media (max-width: 600px) {
+    /* ... (他のモバイル設定は省略) ... */
+    
+    /* ★新規追加: モバイル時のオーディオプレイヤーの幅を保証 */
+    .music-item audio {
+        /* スマホの画面幅に合わせて100%にしつつ、最低限の幅を保証 */
+        width: 100%;
+        min-width: 250px; 
+    }
+}
     
     /* illustrations.html のモバイル調整 */
     .illustration-grid {
