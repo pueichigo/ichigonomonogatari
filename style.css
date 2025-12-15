@@ -1,0 +1,194 @@
+/* style.css */
+
+/* 1. 全体設定 */
+body {
+    margin: 0;
+    font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+    background-color: #fff5f7; 
+    background-image: repeating-linear-gradient(45deg, #f7d8e2 0, #f7d8e2 10px, #fff5f7 10px, #fff5f7 20px);
+    color: #333;
+}
+
+/* 2. ヘッダー */
+header {
+    background-color: #ff6f91;
+    color: white;
+    padding: 80px 40px; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+header h1 {
+    margin: 0;
+    font-size: 4.0rem;
+    letter-spacing: 0.1em;
+}
+header p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    text-align: center;
+}
+.header-icon {
+    width: 250px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: none;
+    box-shadow: none;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* 3. ナビゲーション（目次） */
+nav {
+    background-color: #ff4f7a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.nav-links {
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    list-style: none;
+}
+.nav-links li a {
+    display: block;
+    padding: 15px 30px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+.nav-links li a:hover {
+    background-color: #e03c62;
+}
+
+/* 4. メインコンテンツとセクション */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+section {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px; 
+}
+section h2 {
+    margin-top: 0;
+    color: #ff4f7a;
+    font-size: 1.8rem;
+    text-align: center;
+}
+section p {
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* 5. ギャラリー (Homeページのみで使用) */
+.gallery-wrapper {
+    overflow: hidden;
+    width: 100%;
+    margin-top: 20px;
+}
+.gallery-track {
+    display: flex;
+    gap: 20px;
+    animation: scrollGallery 40s linear infinite; 
+}
+.gallery-track img {
+    width: 300px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+@keyframes scrollGallery {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-1280px);
+    }
+}
+
+/* 6. リンクボタン */
+.link-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 20px;
+    justify-content: center;
+}
+.link-btn {
+    padding: 12px 24px;
+    background-color: #ff6f91;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.link-btn:hover {
+    background-color: #ff4f7a;
+    transform: translateY(-2px);
+}
+
+/* 7. Commissionフォームのスタイル */
+.commission-form-group {
+    margin-bottom: 20px;
+}
+.commission-form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #ff4f7a;
+}
+.commission-form-group input[type="text"],
+.commission-form-group input[type="email"],
+.commission-form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ff99b3;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+.commission-form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+.commission-submit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #ff6f91;
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.commission-submit-btn:hover {
+    background-color: #ff4f7a;
+    transform: translateY(-2px);
+}
+
+/* 8. フッター */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #777;
+}

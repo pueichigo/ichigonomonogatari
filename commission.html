@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>いちごのものがたり | ぷぇいちご - Commission</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="header-text">
+        <h1>いちごのものがたり</h1>
+        <p>イラストレーター兼ゲームクリエイター ぷぇいちご</p>
+    </div>
+    <div class="header-icon" style="background-image:url('images/pueichigo.png');"></div>
+</header>
+
+<nav>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="commission.html">Commission</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section id="commission">
+        <h2>Commission 依頼フォーム</h2>
+        <p>
+            イラスト制作のご依頼はこちらのフォームからお願いします。
+            具体的な制作内容や予算、納期などをご記入ください。
+        </p>
+        
+        <form action="#" method="POST">
+            <div class="commission-form-group">
+                <label for="name">お名前（ハンドルネーム）</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="commission-form-group">
+                <label for="email">メールアドレス（連絡先）</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="commission-form-group">
+                <label for="type">ご希望の依頼内容（例：キャラクターイラスト、ゲーム立ち絵）</label>
+                <input type="text" id="type" name="type" required>
+            </div>
+            <div class="commission-form-group">
+                <label for="details">詳細（世界観、キャラクター設定、サイズ、納期、予算など）</label>
+                <textarea id="details" name="details" required></textarea>
+            </div>
+            <button type="submit" class="commission-submit-btn">依頼内容を送信する</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    © ぷぇいちご
+</footer>
+
+</body>
+</html>
