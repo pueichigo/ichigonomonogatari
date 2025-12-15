@@ -27,8 +27,8 @@
 
 <main>
     <section id="easy-quote">
-        <h2> 簡単見積もりシミュレーション</h2>
-        <p>ご希望の制作内容を選択すると、おおよその見積もり金額が計算されます。</p>
+        <h2>簡単見積もりシミュレーション</h2>
+        <p>ご希望の制作内容を選択すると、おおよその見積もり金額（税抜）が計算されます。**この金額は目安であり、ご相談内容に応じて柔軟に対応いたします。**</p>
         
         <div class="quote-calculator">
             
@@ -36,8 +36,9 @@
                 <label for="basePrice">イラスト形式（必須）</label>
                 <select id="basePrice" onchange="calculateQuote()">
                     <option value="0">--- 選択してください ---</option>
-                    <option value="10000">バストアップ (胸上まで) - ¥10,000</option>
+                    <option value="8000">バストアップ (胸上まで) - ¥8,000</option>
                     <option value="15000">立ち絵 (全身) - ¥15,000</option>
+                    <option value="24000">キャラデザ - ¥24,000</option>
                 </select>
             </div>
             
@@ -49,12 +50,30 @@
                         <span>単色/透過/背景なし (+¥0)</span>
                     </label>
                     <label>
-                        <input type="radio" name="background" value="3000" onchange="calculateQuote()">
-                        <span>簡易背景/小物1点 (+¥3,000)</span>
+                        <input type="radio" name="background" value="2000" onchange="calculateQuote()">
+                        <span>簡易背景/小物1点 (+¥2,000)</span>
                     </label>
                     <label>
                         <input type="radio" name="background" value="8000" onchange="calculateQuote()">
                         <span>描き込み背景/複雑な小物 (+¥8,000)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="commission-form-group">
+                <label>納期（着手から納品までの目安）</label>
+                <div class="toggle-options" id="deliveryOptions">
+                    <label>
+                        <input type="radio" name="delivery" value="0" checked onchange="calculateQuote()">
+                        <span>45日以降 (+¥0)</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="delivery" value="5000" onchange="calculateQuote()">
+                        <span>30日以内 (+¥5,000)</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="delivery" value="10000" onchange="calculateQuote()">
+                        <span>20日以内 (+¥10,000)</span>
                     </label>
                 </div>
             </div>
@@ -68,7 +87,7 @@
                     </label>
                     <label>
                         <input type="radio" name="commercial" value="5000" onchange="calculateQuote()">
-                        <span>あり (+¥5,000)</span>
+                        <span>あり（要相談） (+¥10,000～）</span>
                     </label>
                 </div>
             </div>
@@ -78,9 +97,9 @@
             <div class="quote-result">
                 <h3>最終見積もり金額 (税抜)</h3>
                 <p id="finalQuote" class="price-display">
-                    ¥0
+                    ---
                 </p>
-                <small>※この金額は概算であり、正式な見積もりは依頼フォーム提出後となります。</small>
+                <small>※この金額は概算であり、正式な見積もりは依頼フォーム提出後、詳細確認を経て確定します。</small>
             </div>
             
         </div>
@@ -89,8 +108,7 @@
     <section id="commission-form">
         <h2>✏️ 正式なご依頼・お問い合わせ</h2>
         <p>
-            簡単見積もりをご確認後、正式な制作のご依頼は、以下のボタンをクリックしてGoogleフォームよりお願いします。
-            具体的な制作内容、キャラクター設定、サイズ、納期、予算などをご記入ください。
+            簡単見積もりをご確認いただきありがとうございます。詳細な内容（キャラクター設定、画像サイズ、その他ご要望）の確認、および予算に応じた調整のため、以下のボタンよりGoogleフォームにご記入ください。
         </p>
         
         <div class="link-buttons">
@@ -109,25 +127,30 @@
 <script>
     function calculateQuote() {
         const basePrice = parseInt(document.getElementById('basePrice').value) || 0;
-        const background = parseInt(document.querySelector('input[name="background"]:checked').value) || 0;
-        const commercial = parseInt(document.querySelector('input[name="commercial"]:checked').value) || 0;
         
-        const total = basePrice + background + commercial;
+        // ラジオボタンの値を取得 (選択されていない場合は 0)
+        const background = parseInt(document.querySelector('input[name="background"]:checked')?.value) || 0;
+        const delivery = parseInt(document.querySelector('input[name="delivery"]:checked')?.value) || 0;
+        const commercial = parseInt(document.querySelector('input[name="commercial"]:checked')?.value) || 0;
         
-        const formatter = new Intl.NumberFormat('ja-JP', {
-            style: 'currency',
-            currency: 'JPY',
-            maximumFractionDigits: 0
-        });
+        const total = basePrice + background + delivery + commercial;
         
-        document.getElementById('finalQuote').textContent = formatter.format(total);
+        const finalQuoteElement = document.getElementById('finalQuote');
         
-        // ベース料金が選択されていない場合、警告を表示
+        // ベース料金が選択されていない場合
         if (basePrice === 0) {
-            document.getElementById('finalQuote').textContent = '---';
-            document.getElementById('finalQuote').classList.remove('price-ready');
+            finalQuoteElement.textContent = '---';
+            finalQuoteElement.classList.remove('price-ready');
         } else {
-            document.getElementById('finalQuote').classList.add('price-ready');
+            // 金額フォーマット
+            const formatter = new Intl.NumberFormat('ja-JP', {
+                style: 'currency',
+                currency: 'JPY',
+                maximumFractionDigits: 0
+            });
+            
+            finalQuoteElement.textContent = formatter.format(total);
+            finalQuoteElement.classList.add('price-ready');
         }
     }
     
