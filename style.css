@@ -130,6 +130,49 @@ section p {
     }
 }
 
+/* DLsite作品リスト用 */
+.dlsite-item {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 20px;
+    padding: 15px 0;
+}
+
+/* 💡 新規追加: サムネイルのスタイル */
+.dlsite-thumbnail {
+    width: 100px; /* 正方形の一辺の長さ */
+    height: 100px; /* 正方形の一辺の長さ */
+    flex-shrink: 0; /* 縮小させない */
+    border-radius: 8px;
+    background-size: cover; /* 画像がコンテナを覆うように拡大・縮小 */
+    background-position: center; /* 画像を中央に配置 */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border: 3px solid #f7d8e2; /* 薄いピンクの枠 */
+}
+
+.dlsite-description {
+    flex-grow: 1; 
+    /* リンクボタンの幅を考慮して、最大幅を設定しすぎないように調整 */
+    max-width: calc(100% - 120px - 150px); /* (コンテナ幅 - サムネイル幅 - リンクボタン幅の目安) */
+}
+.dlsite-description h3 {
+    color: #ff4f7a;
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.dlsite-description p {
+    margin-top: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+.dlsite-link {
+    flex-shrink: 0; 
+    margin-top: 0; 
+    justify-content: flex-end; 
+}
+
 /* 6. リンクボタン */
 .link-buttons {
     display: flex;
