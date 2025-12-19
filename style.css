@@ -53,6 +53,13 @@ header p {
 nav {
     background-color: #ff4f7a;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    /* --- ここから追加 --- */
+    position: -webkit-sticky; /* Safari対応 */
+    position: sticky;         /* スクロール時に固定 */
+    top: 0;                   /* 画面の一番上で止まるように設定 */
+    z-index: 1000;            /* 他のコンテンツ（ギャラリー等）の下に隠れないように前面へ */
+    /* --- ここまで追加 --- */
 }
 .nav-links {
     display: flex;
