@@ -53,13 +53,10 @@ header p {
 nav {
     background-color: #ff4f7a;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
-    /* --- ここから追加 --- */
-    position: -webkit-sticky; /* Safari対応 */
-    position: sticky;         /* スクロール時に固定 */
-    top: 0;                   /* 画面の一番上で止まるように設定 */
-    z-index: 1000;            /* 他のコンテンツ（ギャラリー等）の下に隠れないように前面へ */
-    /* --- ここまで追加 --- */
+    position: -webkit-sticky; 
+    position: sticky;        
+    top: 0;                   
+    z-index: 1000;           
 }
 .nav-links {
     display: flex;
@@ -145,23 +142,20 @@ section p {
     gap: 20px;
     padding: 15px 0;
 }
-
-/* 💡 新規追加: サムネイルのスタイル */
 .dlsite-thumbnail {
-    width: 100px; /* 正方形の一辺の長さ */
-    height: 100px; /* 正方形の一辺の長さ */
-    flex-shrink: 0; /* 縮小させない */
+    width: 100px;
+    height: 100px; 
+    flex-shrink: 0; 
     border-radius: 8px;
-    background-size: cover; /* 画像がコンテナを覆うように拡大・縮小 */
-    background-position: center; /* 画像を中央に配置 */
+    background-size: cover; 
+    background-position: center; 
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    border: 3px solid #f7d8e2; /* 薄いピンクの枠 */
+    border: 3px solid #f7d8e2;
 }
 
 .dlsite-description {
     flex-grow: 1; 
-    /* リンクボタンの幅を考慮して、最大幅を設定しすぎないように調整 */
-    max-width: calc(100% - 120px - 150px); /* (コンテナ幅 - サムネイル幅 - リンクボタン幅の目安) */
+    max-width: calc(100% - 120px - 150px);
 }
 .dlsite-description h3 {
     color: #ff4f7a;
@@ -291,7 +285,6 @@ footer {
     max-width: 600px;
     display: block;
     margin-top: 10px;
-    /* ★モバイルでのUI崩れを防ぐ最小幅を設定 */
     min-width: 250px; 
 }
 hr {
@@ -360,8 +353,7 @@ hr {
     .illustration-grid img {
         width: 100%;
     }
-    
-    /* モバイル時のオーディオプレイヤーの幅を保証 */
+
     .music-item audio {
         width: 100%;
         min-width: 250px;
@@ -388,7 +380,7 @@ hr {
     flex-grow: 1;
     text-align: center;
     cursor: pointer;
-    background-color: #fce4ec; /* 薄いピンク */
+    background-color: #fce4ec;
     color: #ff4f7a;
     padding: 10px 15px;
     border-radius: 999px;
@@ -398,12 +390,10 @@ hr {
     border: 2px solid #fce4ec;
 }
 .toggle-options input[type="radio"] {
-    /* ラジオボタン自体を非表示 */
     display: none;
 }
 .toggle-options input[type="radio"]:checked + span {
-    /* 選択されたラベルのスタイル */
-    background-color: #ff6f91; /* 濃いピンク */
+    background-color: #ff6f91;
     color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     border-color: #e03c62;
@@ -431,7 +421,7 @@ hr {
     transition: color 0.5s ease;
 }
 .price-ready {
-    color: #e03c62; /* 金額が確定したら色を変える */
+    color: #e03c62;
     text-shadow: 1px 1px 3px rgba(255, 79, 122, 0.3);
 }
 .quote-result small {
