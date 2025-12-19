@@ -106,17 +106,20 @@ section p {
     text-align: center;
 }
 
-/* 5. ギャラリー (Homeページのみで使用) */
+/* ギャラリー (Homeページのみで使用) */
 .gallery-wrapper {
     overflow: hidden;
     width: 100%;
     margin-top: 20px;
 }
+
 .gallery-track {
     display: flex;
-    gap: 20px;
+    gap: 20px; /* 画像間の隙間 */
+    width: max-content; /* 中身に合わせて幅を自動決定 */
     animation: scrollGallery 30s linear infinite; 
 }
+
 .gallery-track img {
     width: 300px;
     height: 440px;
@@ -125,12 +128,15 @@ section p {
     flex-shrink: 0;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
+
+/* アニメーションの修正 */
 @keyframes scrollGallery {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-1280px);
+        /* 全体の50%（1セット分）移動した時にループさせる */
+        transform: translateX(-50%);
     }
 }
 
