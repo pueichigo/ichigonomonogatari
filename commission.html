@@ -26,12 +26,46 @@
 </nav>
 
 <main>
+    <section id="commission-methods">
+        <h2>依頼方法の選択</h2>
+        <p class="text-center">ご希望の依頼形式に合わせて、以下のいずれかよりお選びください。</p>
+        
+        <div class="method-container">
+            <div class="method-box skeb-box">
+                <h3>Skebでのおまかせ依頼</h3>
+                <p>
+                    金額や内容を「おまかせ」で気軽に依頼したい方はこちら。詳細はSkebのガイドラインに従って進行されます。
+                </p>
+                <p class="skeb-warning">
+                    <b>※注意：</b>Skebはクリエイター側からの見積もり提示や打ち合わせが行えない「投げ銭付イラストリクエスト」サービスです。
+                </p>
+                <div class="link-buttons">
+                    <a href="https://skeb.jp/@pueichigo" target="_blank" class="skeb-btn">
+                        Skebで依頼する
+                    </a>
+                </div>
+                <a href="https://lp.skeb.jp/client?locale=ja" target="_blank" class="skeb-guide-link">Skebの依頼ガイドラインを確認する</a>
+            </div>
+
+            <div class="method-box">
+                <h3>詳細なご依頼・相談</h3>
+                <p>
+                    キャラ設定、サイズ、納期などを細かく指定したい場合はこちら。下部シミュレーターで概算を確認いただけます。
+                </p>
+                <div class="link-buttons">
+                    <a href="#easy-quote" class="commission-submit-btn">
+                        見積もり・相談へ進む
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="easy-quote">
         <h2>簡単見積もりシミュレーション</h2>
-        <p>ご希望の制作内容を選択すると、おおよその見積もり金額（税抜）が計算されます。<br><b>この金額は目安であり、ご相談内容に応じて柔軟に対応いたします。</b></p>
+        <p>「詳細なご依頼・相談」をご検討中の方への目安です。<br>ご希望の内容を選択すると、おおよその金額（税抜）が計算されます。</p>
         
         <div class="quote-calculator">
-            
             <div class="commission-form-group">
                 <label for="basePrice">イラスト形式（必須）</label>
                 <select id="basePrice" onchange="calculateQuote()">
@@ -45,50 +79,26 @@
             <div class="commission-form-group">
                 <label>背景・小物</label>
                 <div class="toggle-options" id="backgroundOptions">
-                    <label>
-                        <input type="radio" name="background" value="0" checked onchange="calculateQuote()">
-                        <span>単色/透過/背景なし (+¥0)</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="background" value="2000" onchange="calculateQuote()">
-                        <span>簡易背景/小物1点 (+¥2,000)</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="background" value="8000" onchange="calculateQuote()">
-                        <span>描き込み背景/複雑な小物 (+¥8,000)</span>
-                    </label>
+                    <label><input type="radio" name="background" value="0" checked onchange="calculateQuote()"><span>単色/透過/背景なし (+¥0)</span></label>
+                    <label><input type="radio" name="background" value="2000" onchange="calculateQuote()"><span>簡易背景/小物1点 (+¥2,000)</span></label>
+                    <label><input type="radio" name="background" value="8000" onchange="calculateQuote()"><span>描き込み背景/複雑な小物 (+¥8,000)</span></label>
                 </div>
             </div>
 
             <div class="commission-form-group">
                 <label>納期（着手から納品までの目安）</label>
                 <div class="toggle-options" id="deliveryOptions">
-                    <label>
-                        <input type="radio" name="delivery" value="0" checked onchange="calculateQuote()">
-                        <span>45日以降 (+¥0)</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="delivery" value="5000" onchange="calculateQuote()">
-                        <span>30日以内 (+¥5,000)</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="delivery" value="10000" onchange="calculateQuote()">
-                        <span>20日以内 (+¥10,000)</span>
-                    </label>
+                    <label><input type="radio" name="delivery" value="0" checked onchange="calculateQuote()"><span>45日以降 (+¥0)</span></label>
+                    <label><input type="radio" name="delivery" value="5000" onchange="calculateQuote()"><span>30日以内 (+¥5,000)</span></label>
+                    <label><input type="radio" name="delivery" value="10000" onchange="calculateQuote()"><span>20日以内 (+¥10,000)</span></label>
                 </div>
             </div>
 
             <div class="commission-form-group">
                 <label>商用利用（グッズ化、収益化など）</label>
                 <div class="toggle-options" id="commercialOptions">
-                    <label>
-                        <input type="radio" name="commercial" value="0" checked onchange="calculateQuote()">
-                        <span>なし (個人利用/非営利公開) (+¥0)</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="commercial" value="10000" onchange="calculateQuote()">
-                        <span>あり（要相談） (+¥10,000～）</span>
-                    </label>
+                    <label><input type="radio" name="commercial" value="0" checked onchange="calculateQuote()"><span>なし (個人利用/非営利公開) (+¥0)</span></label>
+                    <label><input type="radio" name="commercial" value="10000" onchange="calculateQuote()"><span>あり（要相談） (+¥10,000～）</span></label>
                 </div>
             </div>
             
@@ -96,30 +106,17 @@
             
             <div class="quote-result">
                 <h3>最終見積もり金額 (税抜)</h3>
-                <p id="finalQuote" class="price-display">
-                    ---
-                </p>
-                <small>※この金額は概算であり、正式な見積もりは依頼フォーム提出後、詳細確認を経て確定します。</small>
+                <p id="finalQuote" class="price-display">---</p>
+                <div class="link-buttons">
+                    <a href="https://forms.gle/BXAHWtXCNoqnj43U6" target="_blank" class="commission-submit-btn">
+                        この内容で正式に相談する
+                    </a>
+                </div>
+                <small style="display:block; margin-top:15px;">※この金額は概算であり、正式な見積もりはフォーム提出後の確認を経て確定します。</small>
             </div>
-            
         </div>
-    </section>
-
-    <section id="commission-form">
-        <h2>✏️ 正式なご依頼・お問い合わせ</h2>
-        <p>
-            簡単見積もりをご確認いただきありがとうございます。詳細な内容（キャラクター設定、画像サイズ、その他ご要望）の確認、および予算に応じた調整のため、以下のボタンよりGoogleフォームにご記入ください。
-        </p>
-        
-        <div class="link-buttons">
-            <a href="https://forms.gle/BXAHWtXCNoqnj43U6" target="_blank" class="commission-submit-btn">
-                Googleフォームで依頼・相談する
-            </a>
-        </div>
-        
     </section>
 </main>
-
 <footer>
     © ぷぇいちご
 </footer>

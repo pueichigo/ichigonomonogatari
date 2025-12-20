@@ -286,6 +286,81 @@ hr { border: 0; height: 1px; background-color: #f7d8e2; margin: 25px 0; }
     border-color: #e03c62;
 }
 
+/* 依頼方法の左右分割レイアウト */
+.method-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.method-box {
+    flex: 1;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    border: 2px solid #f7d8e2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.method-box h3 {
+    color: #ff4f7a;
+    font-size: 1.3rem;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.skeb-logo-inline {
+    height: 24px;
+    border-radius: 4px;
+}
+
+.skeb-warning {
+    background: #fff0f3;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #d63384;
+}
+
+.skeb-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #222; /* Skebブランドカラー */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.skeb-btn:hover {
+    background-color: #444;
+    transform: translateY(-2px);
+}
+
+.skeb-guide-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #777;
+    text-decoration: underline;
+}
+
+/* レスポンシブ：スマホでは縦並びにする */
+@media (max-width: 600px) {
+    .method-container {
+        flex-direction: column;
+    }
+}
+
 .quote-result { text-align: center; padding: 20px; border-top: 2px dashed #f7d8e2; margin-top: 20px; }
 .quote-result h3 { color: #ff6f91; font-size: 1.5rem; }
 .price-display { font-size: 3rem; font-weight: bold; color: #333; transition: 0.5s ease; }
