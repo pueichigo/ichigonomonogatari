@@ -1,4 +1,3 @@
-/* 1. 全体設定 */
 body {
     margin: 0;
     font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
@@ -8,56 +7,84 @@ body {
     font-size: 16px; 
 }
 
-/* 2. ヘッダー */
 header {
-    background-color: #ff6f91;
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    gap: 40px;
-}
-.header-text {
+    min-height: 400px;
+    padding: 60px 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 30px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(255, 111, 145, 0.9) 0%, rgba(255, 79, 122, 0.8) 100%), url('images/sample1.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
 }
+
+.header-text {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 40px 60px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 2;
+}
+
 header h1 {
     margin: 0;
-    font-size: 3.5rem;
-    letter-spacing: 0.1em;
+    font-size: 4rem;
+    letter-spacing: 0.15em;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    font-weight: 900;
 }
+
 header p {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    text-align: center;
+    margin-top: 15px;
+    font-size: 1.4rem;
+    opacity: 0.9;
 }
+
 .header-icon {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     background-size: cover;
     background-position: center;
     border-radius: 50%;
-    border: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    position: static; 
-    transform: none;
-    flex-shrink: 0; 
+    border: 4px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4), 0 10px 20px rgba(0,0,0,0.2);
+    z-index: 2;
+    transition: transform 0.3s ease;
 }
 
-/* 3. ナビゲーション（目次） */
+.header-icon:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    z-index: 1;
+}
+
 nav {
     background-color: #ff4f7a;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: -webkit-sticky; 
-    position: sticky;        
-    top: 0;                   
-    z-index: 1000;           
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+
 .nav-links {
     display: flex;
     justify-content: center;
@@ -66,6 +93,7 @@ nav {
     padding: 0 20px;
     list-style: none;
 }
+
 .nav-links li a {
     display: block;
     padding: 15px 30px;
@@ -75,16 +103,17 @@ nav {
     transition: background-color 0.2s;
     font-size: 1rem;
 }
+
 .nav-links li a:hover {
     background-color: #e03c62;
 }
 
-/* 4. メインコンテンツとセクション */
 main {
     max-width: 900px;
     margin: 40px auto;
     padding: 0 20px;
 }
+
 section {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 12px;
@@ -92,21 +121,20 @@ section {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     margin-bottom: 40px; 
 }
+
 section h2 {
     margin-top: 0;
     color: #ff4f7a;
     font-size: 1.8rem;
     text-align: center;
 }
+
 section p {
     line-height: 1.8;
-    font-size: 1rem;
-}
-.text-center {
-    text-align: center;
 }
 
-/* ギャラリー (Homeページのみで使用) */
+.text-center { text-align: center; }
+
 .gallery-wrapper {
     overflow: hidden;
     width: 100%;
@@ -115,8 +143,8 @@ section p {
 
 .gallery-track {
     display: flex;
-    gap: 20px; /* 画像間の隙間 */
-    width: max-content; /* 中身に合わせて幅を自動決定 */
+    gap: 20px;
+    width: max-content;
     animation: scrollGallery 30s linear infinite; 
 }
 
@@ -129,18 +157,11 @@ section p {
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* アニメーションの修正 */
 @keyframes scrollGallery {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* 全体の50%（1セット分）移動した時にループさせる */
-        transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
-/* DLsite作品リスト用 */
 .dlsite-item {
     display: flex;
     justify-content: space-between; 
@@ -148,6 +169,7 @@ section p {
     gap: 20px;
     padding: 15px 0;
 }
+
 .dlsite-thumbnail {
     width: 100px;
     height: 100px; 
@@ -163,24 +185,15 @@ section p {
     flex-grow: 1; 
     max-width: calc(100% - 120px - 150px);
 }
+
 .dlsite-description h3 {
     color: #ff4f7a;
     font-size: 1.2rem;
-    margin-top: 0;
-    margin-bottom: 5px;
-}
-.dlsite-description p {
-    margin-top: 0;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-.dlsite-link {
-    flex-shrink: 0; 
-    margin-top: 0; 
-    justify-content: flex-end; 
+    margin: 0 0 5px 0;
 }
 
-/* 6. リンクボタン */
+.dlsite-description p { font-size: 1rem; line-height: 1.5; margin: 0; }
+
 .link-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -188,6 +201,7 @@ section p {
     margin-top: 20px;
     justify-content: center;
 }
+
 .link-btn {
     padding: 12px 24px;
     background-color: #ff6f91;
@@ -195,179 +209,17 @@ section p {
     text-decoration: none;
     border-radius: 999px;
     font-weight: bold;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    font-size: 1rem;
+    transition: 0.2s ease;
 }
+
 .link-btn:hover {
     background-color: #ff4f7a;
     transform: translateY(-2px);
 }
 
-/* 7. Commissionフォームのスタイル */
-.commission-form-group {
-    margin-bottom: 20px;
-}
-.commission-form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #ff4f7a;
-    font-size: 1rem;
-}
-.commission-form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ff99b3;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-size: 1rem;
-}
-.commission-form-group textarea {
-    resize: vertical;
-    min-height: 150px;
-}
-.commission-submit-btn {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    background-color: #ff6f91;
-    color: white;
-    border: none;
-    border-radius: 999px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-.commission-submit-btn:hover {
-    background-color: #ff4f7a;
-    transform: translateY(-2px);
-}
-
-/* 8. フッター */
-footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9rem;
-    color: #777;
-}
-
-/* 9. イラスト一覧 (illustrations.htmlで使用) */
-.illustration-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 30px;
-    margin-top: 20px;
-}
-.illustration-grid img {
-    width: 100%; 
-    height: auto;
-    max-width: 400px; 
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-/* 10. Music リスト (music.htmlで使用) */
-.music-list {
-    margin-top: 20px;
-}
-.music-item {
-    padding: 15px 0;
-}
-.music-item h3 {
-    color: #ff4f7a;
-    font-size: 1.2rem;
-    margin-top: 0;
-    margin-bottom: 5px;
-}
-.music-item p {
-    margin-top: 0;
-    font-size: 0.95rem;
-    color: #555;
-    margin-bottom: 15px;
-}
-.music-item audio {
-    width: 100%;
-    max-width: 600px;
-    display: block;
-    margin-top: 10px;
-    min-width: 250px; 
-}
-hr {
-    border: 0;
-    height: 1px;
-    background-color: #f7d8e2; 
-    margin: 25px 0;
-}
-
-/* 11. レスポンシブ対応 (モバイル向け) */
-@media (max-width: 600px) {
-    body {
-        font-size: 14px; 
-    }
-    
-    header {
-        flex-direction: column;
-        gap: 20px;
-        padding: 30px 10px;
-    }
-    .header-icon {
-        width: 120px;
-        height: 120px;
-        flex-shrink: 0; 
-    }
-    header h1 {
-        font-size: 2.5rem;
-    }
-    header p {
-        font-size: 0.9rem;
-    }
-    
-    .nav-links {
-        flex-wrap: wrap;
-    }
-    .nav-links li a {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
-
-    main {
-        margin: 20px auto;
-        padding: 0 10px;
-    }
-    
-    section {
-        padding: 20px;
-    }
-
-    .gallery-track img {
-        width: 200px;
-        height: 300px;
-    }
-    @keyframes scrollGallery {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(-880px);
-        }
-    }
-    
-    .illustration-grid {
-        grid-template-columns: 1fr;
-    }
-    .illustration-grid img {
-        width: 100%;
-    }
-
-    .music-item audio {
-        width: 100%;
-        min-width: 250px;
-    }
-}
-
-/* 12. 見積もり計算エリアの追加スタイル */
-.quote-calculator select {
+.commission-form-group { margin-bottom: 20px; }
+.commission-form-group label { display: block; font-weight: bold; margin-bottom: 5px; color: #ff4f7a; }
+.commission-form-group textarea, .quote-calculator select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ff99b3;
@@ -376,12 +228,45 @@ hr {
     font-size: 1rem;
     background-color: white;
 }
-.toggle-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 5px;
+.commission-form-group textarea { resize: vertical; min-height: 150px; }
+
+.commission-submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff6f91;
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
+
+.commission-submit-btn:hover { background-color: #ff4f7a; transform: translateY(-2px); }
+
+footer { text-align: center; padding: 20px; font-size: 0.9rem; color: #777; }
+
+.illustration-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.illustration-grid img {
+    width: 100%; 
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.music-item h3 { color: #ff4f7a; margin: 0 0 5px 0; }
+.music-item p { color: #555; margin-bottom: 15px; }
+.music-item audio { width: 100%; max-width: 600px; display: block; margin-top: 10px; }
+
+hr { border: 0; height: 1px; background-color: #f7d8e2; margin: 25px 0; }
+
+.toggle-options { display: flex; flex-wrap: wrap; gap: 10px; }
 .toggle-options label {
     flex-grow: 1;
     text-align: center;
@@ -390,49 +275,34 @@ hr {
     color: #ff4f7a;
     padding: 10px 15px;
     border-radius: 999px;
-    transition: all 0.2s;
+    transition: 0.2s;
     font-weight: bold;
-    font-size: 0.95rem;
     border: 2px solid #fce4ec;
 }
-.toggle-options input[type="radio"] {
-    display: none;
-}
+.toggle-options input[type="radio"] { display: none; }
 .toggle-options input[type="radio"]:checked + span {
     background-color: #ff6f91;
     color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     border-color: #e03c62;
 }
-.toggle-options label:hover {
-    background-color: #ff99b3;
-    color: white;
-}
-/* 見積もり結果表示 */
-.quote-result {
-    text-align: center;
-    padding: 20px;
-    border-top: 2px dashed #f7d8e2;
-    margin-top: 20px;
-}
-.quote-result h3 {
-    color: #ff6f91;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-.price-display {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #333;
-    transition: color 0.5s ease;
-}
-.price-ready {
-    color: #e03c62;
-    text-shadow: 1px 1px 3px rgba(255, 79, 122, 0.3);
-}
-.quote-result small {
-    display: block;
-    margin-top: 10px;
-    color: #777;
-    font-size: 0.85rem;
+
+.quote-result { text-align: center; padding: 20px; border-top: 2px dashed #f7d8e2; margin-top: 20px; }
+.quote-result h3 { color: #ff6f91; font-size: 1.5rem; }
+.price-display { font-size: 3rem; font-weight: bold; color: #333; transition: 0.5s ease; }
+.price-ready { color: #e03c62; text-shadow: 1px 1px 3px rgba(255, 79, 122, 0.3); }
+
+@media (max-width: 600px) {
+    body { font-size: 14px; }
+    header { min-height: 300px; padding: 30px 10px; }
+    .header-text { padding: 20px 30px; width: 80%; }
+    header h1 { font-size: 2.2rem; }
+    header p { font-size: 0.9rem; }
+    .header-icon { width: 120px; height: 120px; }
+    .nav-links li a { padding: 10px 15px; font-size: 0.9rem; }
+    main { margin: 20px auto; padding: 0 10px; }
+    .illustration-grid { grid-template-columns: 1fr; }
+    @keyframes scrollGallery {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-880px); }
+    }
 }
